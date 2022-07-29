@@ -1,0 +1,18 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model (JWTPractice.Models.Authentication.Role, JWTPractice.Models.Authentication.UserModel)
+
+<form asp-action="CreateProduct" asp-controller="Product" method="post" >
+    <input type="text" asp-for="Item2.Name" placeholder="Name"/>
+    <input type="text" asp-for="Item2.Surname" placeholder="Surname"/>
+    <input type="text" asp-for="Item2.UserName" placeholder="Username"/>
+    <input type="password" asp-for="Item2.Password" placeholder="Password"/>
+    <input type="email" asp-for="Item2.EmailAddress" placeholder="Email"/>
+    <select asp-for="Item2.Role">
+    @foreach (var item in ViewBag["Roles"])
+    {
+        <option>@item</option>
+    }
+     </select>
+    <button>Submit</button>
+</form>
